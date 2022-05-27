@@ -1,9 +1,12 @@
+import { Header } from '../../components/Header';
 import { Container } from './styled';
 
 export function Dashboard(){
   return (
-    <Container>
-      
-    </Container>
+    <>
+      <Container>
+        <Header/>
+      </Container>
+    </>
   );
 };
