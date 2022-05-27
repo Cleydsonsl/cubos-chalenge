@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Dashboard } from './pages/Dashboard'
 import { GlobalStyle } from './styles/global'
 import { api } from "./services/api"
+import { Header } from "./components/Header"
 
 export function App() {
 
@@ -15,6 +16,7 @@ export function App() {
   return (
     <>
       <GlobalStyle/>
+      <Header/>
       <Dashboard/>
     </>
   )
