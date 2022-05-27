@@ -9,7 +9,8 @@ export const mixins = {
     placeholder: '#a3bece',
     shape: '#FFF',
 
-    text: '#000000'
+    text: '#000000',
+    text_light: '#5F5D5D'
 
   },
   fonts: {
