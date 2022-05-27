@@ -1,3 +1,4 @@
+import { Cards } from '../../components/Cards';
 import { Header } from '../../components/Header';
 import { Container } from './styled';
 
@@ -6,6 +7,7 @@ export function Dashboard(){
     <>
       <Container>
         <Header/>
+        <Cards />
       </Container>
     </>
   );
