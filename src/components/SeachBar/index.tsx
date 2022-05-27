@@ -1,4 +1,4 @@
-import { Container, Input } from "./styles";
+import { Container, Input } from './styled';
 
 export function SearchBar() {
   return (
