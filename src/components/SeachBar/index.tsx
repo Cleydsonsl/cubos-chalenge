@@ -14,7 +14,7 @@ export function SearchBar({value, onChange, onClick, ...rest}: InputProps) {
         value={value}
         onChange={onChange}
       />
-      {value && <button type='submit'>Buscar</button>}
+      
     </Container>
   )
 }

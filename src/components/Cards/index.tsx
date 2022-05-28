@@ -14,13 +14,12 @@ import {
   TextContent,
   Text, 
   Genre,
-  GenreContent,
   Error,
   ContentCard,
   ContentGenre} from './styled';
 
 import noImage from '../../assets/noImage.png';
-import { api, apiPage } from '../../services/api';
+import { apiPage } from '../../services/api';
 import { SearchBar } from '../SeachBar';
 import { genres } from '../../utils/genres';
 
