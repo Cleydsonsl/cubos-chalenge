@@ -5,7 +5,7 @@ export const Container = styled.div`
   background-color: ${mixins.colors.primary};
 
   width: 100%;
-  padding: 30px 555px;
+  padding: 14px 555px;
 
   display: flex;
   align-items: center;
@@ -14,8 +14,7 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   color: ${mixins.colors.secondary};
-
-  font-family: ${mixins.fonts.abel};
-  font-size: 3.5rem;
-  text-align: center;
+  font-family: Abel, sans-serif;
+  font-size: 6.5rem;
+  font-weight: 400;
 `;

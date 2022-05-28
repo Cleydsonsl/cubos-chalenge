@@ -3,6 +3,7 @@ import { Dashboard } from './pages/Dashboard'
 import { GlobalStyle } from './styles/global'
 import { api } from "./services/api"
 import { Header } from "./components/Header"
+import { Details } from "./pages/Details"
 
 export function App() {
 
@@ -17,7 +18,8 @@ export function App() {
     <>
       <GlobalStyle/>
       <Header/>
-      <Dashboard/>
+      {/* <Dashboard/> */}
+      <Details/>
     </>
   )
 }

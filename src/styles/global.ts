@@ -3,6 +3,10 @@ import { mixins } from './mixins';
 
 export const GlobalStyle = createGlobalStyle`
 
+    :root {
+        font-size: 60%
+    }
+
     * {
         margin: 0;
         padding: 0;

@@ -6,6 +6,7 @@ export const mixins = {
     secondary: '#00e4e2',
 
     backgroundComponent: '#ebebeb',
+    barComponent: '#D9D9D9',
     placeholder: '#a3bece',
     shape: '#FFF',
 
