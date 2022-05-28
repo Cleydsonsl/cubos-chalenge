@@ -20,6 +20,11 @@ export const Input = styled.input`
   color: ${mixins.colors.text};
   font-family: ${mixins.fonts.light};
   font-size: 1.4rem;
+  margin-bottom: 45px;
+
+  :focus {
+    outline: 0;
+  }
 
   &::placeholder {
     color: ${mixins.colors.placeholder};
