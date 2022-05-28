@@ -3,13 +3,11 @@ import { mixins } from '../../styles/mixins';
 
 export const Container = styled.div`
   width: 100%;
-
-  
 `;
 
 export const Content = styled.div`
   background: ${mixins.colors.backgroundComponent};
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   
 
   .link {
