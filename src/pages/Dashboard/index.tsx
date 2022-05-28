@@ -6,7 +6,6 @@ export function Dashboard(){
   return (
     <>
       <Container>
-        <SearchBar/>
         <Cards/>
       </Container>
     </>

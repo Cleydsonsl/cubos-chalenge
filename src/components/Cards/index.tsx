@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
+
 import { 
   Container, 
   Brand, 
@@ -10,39 +14,145 @@ import {
   TextContent,
   Text, 
   Genre,
-  GenreContent} from './styled';
+  GenreContent,
+  Error,
+  ContentCard,
+  ContentGenre} from './styled';
 
-import capa from '../../assets/capa_thor2.png';
+import noImage from '../../assets/noImage.png';
+import { api, apiPage } from '../../services/api';
+import { SearchBar } from '../SeachBar';
+import { genres } from '../../utils/genres';
+
+interface IMovieProps {
+  id: string;
+  poster_path: string;
+  title: string;
+  name: string;
+  release_date: Date;
+  overview: string;
+  genre_ids: [];
+  vote_average: string;
+}
 
 export function Cards(){
+  const [movieCard, setMovieCard] = useState('');
+  const [resultError, setResultError] = useState('');
+  const [, setInputError] = useState('');
+  const poster = 'http://image.tmdb.org/t/p/w342/';
+
+  const [repositories, setRepositories] = useState(() => {
+    const storageRepositories = sessionStorage.getItem('@movie:repositories');
+
+    if (storageRepositories) {
+      return JSON.parse(storageRepositories);
+    }
+    return[];
+  })
+
+  useEffect(() => {
+    localStorage.setItem('@movie:repositories', JSON.stringify(repositories));
+  }, [repositories]);
+
+  async function handleSearch(e:any) {
+    e.preventDefault();
+
+    if(!movieCard) {
+      setInputError('Digite o nome de um filme ou de um gênero');
+      return;
+    }
+
+    setResultError('');
+    setInputError('');
+
+    const replaceMovie = movieCard.replace('', '+');
+
+    const { data } = await apiPage.get(`&page=1&query=${replaceMovie}`);
+
+    if (!data.results[0]) {
+      setResultError('O nome do filme digitado esta errado ou nao existe');
+    }
+
+    setMovieCard('');
+    setRepositories(data);
+    console.log(data.results);
+  }
+
+  function searchGenre(value: any) {
+    let search = genres.map(g => {
+      return value === g.id ? g.name : null;
+    });
+    return search;
+  }
+
   return (
     <Container>
-      <Brand src={capa}>
+      <form onSubmit={handleSearch}>
+        <SearchBar
+          value={movieCard}
+          onChange={(e: { target: { value : React.SetStateAction<string> } }) =>
+          setMovieCard(e.target.value)
+        }
+        onClick={() => setMovieCard('')}
+        />
+      </form>
 
-      </Brand>
-      <Content>
-        <ContentTitle>
-          <Title>Thor: Ragnarok</Title>
-        </ContentTitle>
-        <ContentPunctuation>
-          <TextPonctuation>75%</TextPonctuation>
-        </ContentPunctuation>
-        <MovieDate>10/01/2020</MovieDate>
+      {
+        resultError && (
+          <>
+            <Error>{resultError}</Error>
+          </>
+        )
+      }
 
-        <TextContent>
-          <Text>
-            Thor esta aprisionado do outo lado do universo, sem seu martelo, e sse vê em uma corrida para voltar até Asgard e impedir o Ragnarok, a destruição de seu lar e o fim da civilização asgardiana que está nas mãos de uma nova e poderosa ameaça, a terrível Hela. Mas primeiro ele precisa sobreviver a uma batalha de gladiadores que o coloca contra seu ex-aliado e vingador, o Incrível Hulk.
-          </Text>
-        </TextContent>
-        <GenreContent>
-          <Genre>
-            Ação
-          </Genre>
-          <Genre>
-            Ação
-          </Genre>
-        </GenreContent>
-      </Content>
+      {
+        repositories?.results && (
+          <>
+            {
+              repositories.results.map((repositorie: IMovieProps) => (
+                <Content key={repositorie.id}>
+                  <Link className='link' to={`/movie${repositorie.id}`}>
+                    {`${poster}${repositorie.poster_path}` === `${poster}${null}` ? 
+                    (<Brand src={noImage} alt='Poster' />) : (
+                      <Brand src={`${poster}${repositorie.poster_path}`} alt='Poster'/>
+                    )}
+      
+                    
+                    <ContentCard>
+                      <ContentTitle>
+                        <Title>{repositorie.title || repositorie.name}</Title>
+                      </ContentTitle>
+                      <ContentPunctuation>
+                        <TextPonctuation>{repositorie.vote_average}</TextPonctuation>
+                      </ContentPunctuation>
+                      <MovieDate>
+                        {moment(repositorie.release_date).format('DD/MM/YYYY')}
+                      </MovieDate>
+                      <TextContent>
+                        <Text>
+                          {repositorie.overview === '' ? (
+                            <p>Sem sinopse...</p>) : (
+                              <>{repositorie.overview}</>
+                            )
+                          }
+                        </Text>
+                      </TextContent>
+                      <ContentGenre> {repositorie.genre_ids.map((e: any, index: any) => (
+                        <Genre key={index}>
+                            {searchGenre(e)}
+                        </Genre>
+                      ))}
+                      </ContentGenre>
+                    </ContentCard>
+                      
+                  </Link>
+                </Content>
+              ))
+            }
+          </>
+        )
+
+      }
     </Container>
   );
 };

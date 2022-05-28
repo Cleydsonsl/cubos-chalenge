@@ -2,20 +2,30 @@ import styled from 'styled-components';
 import { mixins } from '../../styles/mixins';
 
 export const Container = styled.div`
-  background: ${mixins.colors.backgroundComponent};
+  width: 100%;
 
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: row;
+  
+`;
+
+export const Content = styled.div`
+  background: ${mixins.colors.backgroundComponent};
+  margin-bottom: 50px;
+  
+
+  .link {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    text-decoration: none;
+  }
 `;
 
 export const Brand = styled.img`
   width: 263px;
 `;
 
-export const Content = styled.div`
-`;
 
 export const ContentTitle = styled.div`
   background-color: ${mixins.colors.primary};
@@ -33,6 +43,13 @@ export const Title = styled.h1`
   font-size: 50px;
 
   margin-left: 132px;
+`;
+
+export const ContentCard = styled.div`
+  width: 100%;
+  background: ${mixins.colors.backgroundComponent};
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ContentPunctuation = styled.div`
@@ -108,4 +125,15 @@ export const Genre = styled.p`
   border-radius: 20px;
   margin-left: 32px;
 
-`
+`;
+
+export const Error = styled.div`
+`;
+
+export const ContentGenre = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+
+
