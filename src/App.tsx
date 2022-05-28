@@ -1,9 +1,7 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Dashboard } from './pages/Dashboard'
-import { GlobalStyle } from './styles/global'
-import { Header } from "./components/Header"
-// import { Details } from "./pages/Details"
+import { GlobalStyle } from './styles/global';
+import { Routers } from './Routers';
+import { Header } from './components/Header';
 
 export function App() {
 
@@ -11,9 +9,7 @@ export function App() {
     <BrowserRouter>
       <GlobalStyle/>
       <Header/>
-      <Dashboard/>
-      {/* <Details/> */}
-      
+      <Routers/>
     </BrowserRouter>
   )
 }
