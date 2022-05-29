@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { mixins } from '../../styles/mixins';
 
 export const Container = styled.div`
-  background-color: ${mixins.colors.barComponent};
 
   width: 100%;
   margin-top: 40px;
@@ -13,13 +12,14 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  background-color: ${mixins.colors.backgroundComponent};
+  background: ${mixins.colors.backgroundComponent};
 
   width: 100%;
   display: flex;
 `
 
 export const Header = styled.div`
+  background: ${mixins.colors.barComponent};
   padding: 8px 60px;
 
   display: flex;
@@ -97,12 +97,11 @@ export const ContentInformation = styled.p`
 `;
 
 export const Category = styled.div`
-  width: 280px;
-  margin-top: 50px;
+  width: 100%;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+
 `;
 
 export const CardCategory = styled.div`
@@ -111,10 +110,7 @@ export const CardCategory = styled.div`
   border-radius: 20px;
   padding: 3px 16px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  margin-right: 10px;
 `;
 
 export const TextCategory = styled.p`
@@ -125,10 +121,27 @@ export const TextCategory = styled.p`
   text-align: center;
 `;
 
-export const BoxPunctuation = styled.div`
+export const ContentAction = styled.div`
   width: 100%;
+
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  margin-top: 50px;
+`;
+
+export const ContentPunctuation = styled.div`
+  width: 105px;
+  height: 105px;
+
+  background: ${mixins.colors.secondary};
+  border: 5px solid ${mixins.colors.primary};
+  border-radius: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Punctuation = styled.p`
@@ -139,8 +152,8 @@ export const Punctuation = styled.p`
   text-align: center;
 
   background: ${mixins.colors.primary};
-  width: 104px;
-  height: 104px;
+  width: 96px;
+  height: 96px;
   padding: 40px;
   border: ${mixins.colors.secondary} 6px solid;
   border-radius: 50px;
@@ -151,6 +164,22 @@ export const Punctuation = styled.p`
 `;
 
 export const Brand = styled.img`
-  width: 320px;
-  height: 485px;
+  width: 450px;
+  height: 100%;
+`;
+
+export const NoTrailer = styled.p`
+  margin-top: 30px;
+  text-align: center;
+  color: ${mixins.colors.error};
+  font-size: 26px;
+  font-weight: 400;
+`;
+
+export const Trailer = styled.div`
+  margin: 20px 0 20px 0;
+  flex: 1;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
 `;

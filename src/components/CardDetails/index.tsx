@@ -21,10 +21,14 @@ import {
   CardCategory, 
   TextCategory, 
   Punctuation, 
-  BoxPunctuation } from './styled';
+  NoTrailer,
+  Trailer,
+  ContentAction,
+  ContentPunctuation} from './styled';
 
 import { apiMovieDetail, key } from '../../services/api';
 import noImage from '../../assets/noImage.png';
+import ReactPlayer from 'react-player';
 
 interface IGenreProps {
   id: string;
@@ -114,24 +118,42 @@ export function CardDetails() {
                     </ContentInformation>
                   </BoxInformation>
                 </Information>
-                <Category>
-                  {
-                    repository.genres.map((g: IGenreProps) => (
-                      <CardCategory>
-                        <TextCategory key={g.id}>{g.name}</TextCategory>
-                      </CardCategory>
-                    ))
-                  }
-                </Category>
-                <BoxPunctuation>
-                  <Punctuation>{repository.vote_average}</Punctuation>
-                </BoxPunctuation>
+                <ContentAction>
+                  <Category>
+                    {
+                      repository.genres.map((g: IGenreProps) => (
+                        <CardCategory>
+                          <TextCategory key={g.id}>{g.name}</TextCategory>
+                        </CardCategory>
+                      ))
+                    }
+                    
+                    
+                    
+                  </Category>
+                  <ContentPunctuation>
+                    <Punctuation>{repository.vote_average}</Punctuation>
+                  </ContentPunctuation>
+                  
+                </ContentAction>
+                
               </MovieDetails>
               {`${poster}${repository.poster_path}` === `${poster}${null}` ? 
                 (<Brand src={noImage} alt='Poster' />) : (
                   <Brand src={`${poster}${repository.poster_path}`} alt='Poster'/>
                 )}
             </Content>
+            {repository?.videos?.results[0]?.key === undefined ? (
+              <NoTrailer>Ainda não temos o trailer para este filme</NoTrailer>
+            ) : (
+              <Trailer>
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${repository.videos.results[0].key}`}
+                  width= '100%'
+                  height='100%'
+                />
+              </Trailer>
+            )}
           </>
         )
       }
