@@ -1,4 +1,3 @@
-
 import { CardDetails } from '../../components/CardDetails';
 import { Container } from './styled';
 

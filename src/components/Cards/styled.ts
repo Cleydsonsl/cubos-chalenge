@@ -113,16 +113,16 @@ export const Genre = styled.p`
   font-family: Abel, sans-serif;
   font-weight: 400;
   font-size: 1.8rem;
-
   color: ${mixins.colors.primary};
+
+  background: ${mixins.colors.shape};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 18px;
-  border: 1px solid ${mixins.colors.primary};
+  padding: 3px 16px;
+  border: 2px solid ${mixins.colors.primary};
   border-radius: 20px;
   margin-left: 32px;
-
 `;
 
 export const Error = styled.div`
