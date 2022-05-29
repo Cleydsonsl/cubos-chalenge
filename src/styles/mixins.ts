@@ -11,7 +11,9 @@ export const mixins = {
     shape: '#FFF',
 
     text: '#000000',
-    text_light: '#5F5D5D'
+    text_light: '#5F5D5D',
+
+    error: '#CE2020'
 
   },
   fonts: {
