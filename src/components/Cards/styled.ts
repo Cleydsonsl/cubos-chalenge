@@ -38,7 +38,7 @@ export const Title = styled.h1`
   color: ${mixins.colors.secondary};
   font-family: Abel, sans-serif;
   font-weight: 400;
-  font-size: 50px;
+  font-size: 5rem;
 
   margin-left: 132px;
 `;
@@ -70,7 +70,7 @@ export const TextPonctuation = styled.p`
   color: ${mixins.colors.secondary};
   font-family: Abel, sans-serif;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 3.2rem;
 
   background: ${mixins.colors.primary};
   border-radius: 50%;
@@ -86,7 +86,7 @@ export const MovieDate = styled.h3`
   color: ${mixins.colors.text_light};
   font-family: Lato, sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 2.4rem;
 
   margin-left: 131px;
   margin-top: -45px;
@@ -99,7 +99,7 @@ export const TextContent = styled.div`
 export const Text = styled.p`
   font-family: Lato, sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   color: ${mixins.colors.text};
 `;
@@ -112,7 +112,7 @@ export const GenreContent = styled.div`
 export const Genre = styled.p`
   font-family: Abel, sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   color: ${mixins.colors.primary};
   display: flex;
