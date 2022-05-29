@@ -10,6 +10,15 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 14px 0px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Title = styled.a`
@@ -17,6 +26,11 @@ export const Title = styled.a`
   font-family: Abel, sans-serif;
   font-size: 6.5rem;
   font-weight: 400;
+  text-align: center;
 
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    font-size: 5rem;
+  }
 `;

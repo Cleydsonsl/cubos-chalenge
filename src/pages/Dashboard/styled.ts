@@ -5,9 +5,23 @@ export const Container = styled.div`
   background-color: ${mixins.colors.background};
   width: 100%;
 
-  padding: 45px 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 2560px) {
+    padding: 45px 310px;
+  }
 
   @media (max-width: 1920px) {
-    padding: 45px 300px;
+    padding: 45px 200px;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 45px 120px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 45px 60px;
   }
 `;

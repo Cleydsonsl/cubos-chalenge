@@ -22,9 +22,7 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 87.5%;
         }
     }
-
     
-
     body { 
         background: ${mixins.colors.background};
         -webkit-font-smoothing: antialiased;
