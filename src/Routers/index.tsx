@@ -8,7 +8,9 @@ export function Routers(){
   return (
     <Routes>
       <Route path='/' element={<Dashboard/>}/>
-      <Route path='/details' element={<Details/>}/>
+      <Route path='/movie' element={<Details/>}>
+        <Route path=':id' element={<Details/>}/>
+      </Route>
     </Routes>
   );
 };

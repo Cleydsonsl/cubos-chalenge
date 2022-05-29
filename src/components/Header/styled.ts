@@ -12,9 +12,11 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.a`
   color: ${mixins.colors.secondary};
   font-family: Abel, sans-serif;
   font-size: 6.5rem;
   font-weight: 400;
+
+  text-decoration: none;
 `;

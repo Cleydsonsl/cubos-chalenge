@@ -19,14 +19,9 @@ import {
   Punctuation, 
   BoxPunctuation } from './styled';
 
-import image from '../../assets/capa.png';
 import { useEffect, useState } from 'react';
 import { apiMovieDetail, key } from '../../services/api';
-import { useMatch } from 'react-router-dom';
-
-interface IRepoProps {
-  id: string;
-}
+import { useParams } from 'react-router-dom';
 
 interface IGenreProps {
   id: string;
@@ -34,13 +29,13 @@ interface IGenreProps {
 }
 
 export function Details() {
-  const params  = useMatch('');
+  const params = useParams();
   const [repository, setRepository] = useState<any>(null);
 
   useEffect(() => {
-    apiMovieDetail.get(`${params}?api_key=${key}&language=pt-BR&append_to_response=videos`,
+    apiMovieDetail.get(`${params.id}?api_key=${key}&language=pt-BR&append_to_response=videos`,
     ).then(response => setRepository(response.data));
-  }, [params]);
+  }, [params.id]);
 
   console.log(repository);
 

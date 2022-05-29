@@ -3,7 +3,7 @@ import { Container, Title } from "./styled";
 export function Header() {
   return (
     <Container>
-      <Title>
+      <Title href="/">
         Movies
       </Title>
     </Container>

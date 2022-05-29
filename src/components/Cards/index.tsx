@@ -110,7 +110,10 @@ export function Cards(){
             {
               repositories.results.map((repositorie: IMovieProps) => (
                 <Content key={repositorie.id}>
-                  <Link className='link' to={`/movie${repositorie.id}`}>
+                  <Link 
+                    className='link' 
+                    to={`/movie/${repositorie.id}`}
+                  >
                     {`${poster}${repositorie.poster_path}` === `${poster}${null}` ? 
                     (<Brand src={noImage} alt='Poster' />) : (
                       <Brand src={`${poster}${repositorie.poster_path}`} alt='Poster'/>
