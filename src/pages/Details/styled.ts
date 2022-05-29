@@ -30,7 +30,7 @@ export const Title = styled.h1`
   font-weight: 500;
 `;
 
-export const Date = styled.p`
+export const MovieDate = styled.p`
   color: ${mixins.colors.text_light};
   font-family: Lato, sans-serif;
   font-size: 2rem;
