@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import moment from 'moment';
+
 import { 
   Container, 
   Content, 
@@ -19,10 +23,7 @@ import {
   Punctuation, 
   BoxPunctuation } from './styled';
 
-import { useEffect, useState } from 'react';
 import { apiMovieDetail, key } from '../../services/api';
-import { Link, useParams } from 'react-router-dom';
-import moment from 'moment';
 import noImage from '../../assets/noImage.png';
 
 interface IGenreProps {
