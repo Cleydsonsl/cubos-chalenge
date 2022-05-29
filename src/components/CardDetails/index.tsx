@@ -143,7 +143,7 @@ export function CardDetails() {
                   <Brand src={`${poster}${repository.poster_path}`} alt='Poster'/>
                 )}
             </Content>
-            {repository?.videos?.results[0].key === undefined ? (
+            {repository?.videos?.results[0]?.key === undefined ? (
               <NoTrailer>Ainda não temos o trailer para este filme</NoTrailer>
             ) : (
               <Trailer>
