@@ -38,6 +38,7 @@ export function Cards(){
   const [movieCard, setMovieCard] = useState('');
   const [resultError, setResultError] = useState('');
   const [, setInputError] = useState('');
+  const [page, setPages] = useState(0);
   const poster = 'http://image.tmdb.org/t/p/w342/';
 
   const [repositories, setRepositories] = useState(() => {
@@ -53,8 +54,13 @@ export function Cards(){
     localStorage.setItem('@movie:repositories', JSON.stringify(repositories));
   }, [repositories]);
 
+  function handlePage(id: number) {
+    setPages(id);
+  }
+
   async function handleSearch(e:any) {
     e.preventDefault();
+    setPages(0);
 
     if(!movieCard) {
       setInputError('Digite o nome de um filme ou de um gênero');
@@ -84,6 +90,8 @@ export function Cards(){
     return search;
   }
 
+  
+
   return (
     <Container>
       <form onSubmit={handleSearch}>
@@ -108,7 +116,7 @@ export function Cards(){
         repositories?.results && (
           <>
             {
-              repositories.results.map((repositorie: IMovieProps) => (
+              repositories.results.slice(page * 5, page * 5 + 5).map((repositorie: IMovieProps) => (
                 <Content key={repositorie.id}>
                   <Link 
                     className='link' 
