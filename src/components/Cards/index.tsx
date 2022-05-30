@@ -16,7 +16,7 @@ import {
   Genre,
   Error,
   ContentCard,
-  ContentGenre} from './styled';
+  ContentGenre, ReadMore} from './styled';
 
 import noImage from '../../assets/noImage.png';
 import { apiPage } from '../../services/api';
@@ -39,6 +39,8 @@ export function Cards(){
   const [resultError, setResultError] = useState('');
   const [, setInputError] = useState('');
   const poster = 'http://image.tmdb.org/t/p/w342/';
+
+  
 
   const [repositories, setRepositories] = useState(() => {
     const storageRepositories = sessionStorage.getItem('@movie:repositories');
@@ -138,6 +140,7 @@ export function Cards(){
                             )
                           }
                         </Text>
+                      
                       </TextContent>
                       <ContentGenre> {repositorie.genre_ids.map((e: any, index: any) => (
                         <Genre key={index}>

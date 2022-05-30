@@ -224,4 +224,6 @@ export const ContentGenre = styled.div`
   flex-direction: row;
 `;
 
+export const ReadMore = styled.button``;
+
 

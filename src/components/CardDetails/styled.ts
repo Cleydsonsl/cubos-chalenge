@@ -38,6 +38,10 @@ export const MovieDate = styled.p`
 
 export const MovieDetails = styled.div`
   padding: 10px 30px 10px 60px;
+
+  @media (max-width: 1280px) {
+    padding: 10px 30px;
+  }
 `;
 
 export const SubTitle = styled.h2`
@@ -83,12 +87,20 @@ export const TitleInformation = styled.p`
   font-family: Abel, sans-serif;
   font-size: 2.8rem;
   font-weight: 400;
+
+  @media (max-width: 1280px) {
+    font-size: 2.6rem;
+  }
 `
 export const ContentInformation = styled.p`
   color: ${mixins.colors.text_light};
   font-family: Lato, sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
+
+  @media (max-width: 1280px) {
+    font-size: 1.6em;
+  }
 `;
 
 export const Category = styled.div`
