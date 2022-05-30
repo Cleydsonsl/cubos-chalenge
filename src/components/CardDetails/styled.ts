@@ -4,6 +4,13 @@ import { mixins } from '../../styles/mixins';
 export const Container = styled.div`
   width: 100%;
   margin-top: 40px;
+
+  @media (max-width: 768px) {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Content = styled.div`
@@ -11,6 +18,13 @@ export const Content = styled.div`
 
   width: 100%;
   display: flex;
+
+  @media (max-width: 768px) {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
 `
 
 export const Header = styled.div`
@@ -20,6 +34,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 `;
 
 export const Title = styled.h1`
@@ -173,6 +188,10 @@ export const Punctuation = styled.p`
 export const Brand = styled.img`
   width: 450px;
   height: 100%;
+
+  @media (max-width: 768px) {
+    padding-top: 20px;
+  }
 `;
 
 export const NoTrailer = styled.p`
