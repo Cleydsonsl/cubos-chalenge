@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {PlusCircle} from 'react-feather';
 import { mixins } from '../../styles/mixins';
 
 export const Container = styled.div`
@@ -242,4 +243,19 @@ export const ContentGenre = styled.div`
 `;
 
 
+export const PageNumbersContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
+export const Page = styled.div`
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+`;
+
+export const PlusCircleIcon = styled(PlusCircle)`
+    cursor: pointer;
+    margin: 10px;
+`;

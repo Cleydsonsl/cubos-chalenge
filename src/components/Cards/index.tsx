@@ -16,7 +16,10 @@ import {
   Genre,
   Error,
   ContentCard,
-  ContentGenre} from './styled';
+  ContentGenre,
+  PageNumbersContainer,
+  Page,
+  PlusCircleIcon} from './styled';
 
 import noImage from '../../assets/noImage.png';
 import { apiPage } from '../../services/api';
@@ -38,6 +41,8 @@ export function Cards(){
   const [movieCard, setMovieCard] = useState('');
   const [resultError, setResultError] = useState('');
   const [, setInputError] = useState('');
+  const [page, setPage] = useState(0);
+  const [pageParamsApi, setPageParamsApi] = useState(1);
   const poster = 'http://image.tmdb.org/t/p/w342/';
 
   
@@ -55,6 +60,8 @@ export function Cards(){
     localStorage.setItem('@movie:repositories', JSON.stringify(repositories));
   }, [repositories]);
 
+  
+
   async function handleSearch(e:any) {
     e.preventDefault();
 
@@ -68,7 +75,7 @@ export function Cards(){
 
     const replaceMovie = movieCard.replace('', '+');
 
-    const { data } = await apiPage.get(`&page=1&query=${replaceMovie}`);
+    const { data } = await apiPage.get(`&page=${pageParamsApi}&query=${replaceMovie}`);
 
     if (!data.results[0]) {
       setResultError('O nome do filme digitado esta errado ou nao existe');
@@ -85,6 +92,8 @@ export function Cards(){
     });
     return search;
   }
+
+  
 
   return (
     <Container>
@@ -110,7 +119,7 @@ export function Cards(){
         repositories?.results && (
           <>
             {
-              repositories.results.map((repositorie: IMovieProps) => (
+              repositories.results.slice(page * 5, page * 5 + 5).map((repositorie: IMovieProps) => (
                 <Content key={repositorie.id}>
                   <Link 
                     className='link' 
@@ -154,9 +163,36 @@ export function Cards(){
                 </Content>
               ))
             }
+
+            <PageNumbersContainer>
+              <Page onClick={() => {
+                  setPage(0);
+                  window.scrollTo(0,0);
+              }}>1</Page>
+              <Page onClick={() => {
+                  setPage(1);
+                  window.scrollTo(0,0);
+              }}>2</Page>
+              <Page onClick={() => {
+                  setPage(2);
+                  window.scrollTo(0,0);
+              }}>3</Page>
+              <Page onClick={() => {
+                  setPage(3);
+                  window.scrollTo(0,0);
+              }}>4</Page>
+              <PlusCircleIcon 
+                  color="#000000" 
+                  onClick={() => {
+                      setPageParamsApi(pageParamsApi + 1);
+                      setPage(0);
+                      window.scrollTo(0,0);
+                  }}
+              />
+          </PageNumbersContainer>
           </>
         )
-
+        
       }
     </Container>
   );

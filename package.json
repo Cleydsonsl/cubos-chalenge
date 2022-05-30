@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "feather-icons": "^4.29.0",
     "moment": "^2.29.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-feather": "^2.0.9",
     "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
