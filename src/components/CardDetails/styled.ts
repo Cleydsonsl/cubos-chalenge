@@ -22,7 +22,7 @@ export const Content = styled.div`
   @media (max-width: 768px) {
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   }
 `
@@ -35,6 +35,12 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   
+  @media (max-width: 480px) {
+    padding: 8px 30px;
+
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 export const Title = styled.h1`
@@ -49,6 +55,11 @@ export const MovieDate = styled.p`
   font-family: Lato, sans-serif;
   font-size: 2rem;
   font-weight: 500;
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+    margin-left: 130px;
+  }
 `;
 
 export const MovieDetails = styled.div`
@@ -56,6 +67,12 @@ export const MovieDetails = styled.div`
 
   @media (max-width: 1280px) {
     padding: 10px 30px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 10px 30px;
+
   }
 `;
 
@@ -88,6 +105,13 @@ export const Information = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 480px) {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const BoxInformation = styled.div`
@@ -95,6 +119,13 @@ export const BoxInformation = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
+
+    @media (max-width: 480px) {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
 `;
 
 export const TitleInformation = styled.p`
@@ -124,6 +155,10 @@ export const Category = styled.div`
   display: flex;
   justify-content: flex-start;
 
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+  }
+
 `;
 
 export const CardCategory = styled.div`
@@ -133,6 +168,13 @@ export const CardCategory = styled.div`
   padding: 3px 16px;
 
   margin-right: 10px;
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+    padding: 2px 6px;
+    margin-left: 4px;
+    margin-bottom: 6px;
+  }
 `;
 
 export const TextCategory = styled.p`
@@ -164,6 +206,11 @@ export const ContentPunctuation = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    margin-top: 60px;
+  }
+
 `;
 
 export const Punctuation = styled.p`
@@ -183,6 +230,7 @@ export const Punctuation = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
+
 `;
 
 export const Brand = styled.img`
@@ -191,6 +239,10 @@ export const Brand = styled.img`
 
   @media (max-width: 768px) {
     padding-top: 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
   }
 `;
 
