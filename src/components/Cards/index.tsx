@@ -16,7 +16,7 @@ import {
   Genre,
   Error,
   ContentCard,
-  ContentGenre, ReadMore} from './styled';
+  ContentGenre} from './styled';
 
 import noImage from '../../assets/noImage.png';
 import { apiPage } from '../../services/api';
